@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "result": [
+    {
+      "update_id": 105627323,
+      "message": {
+        "message_id": 6,
+        "from": {
+          "id": 602129916,
+          "is_bot": false,
+          "first_name": "MIHAIL",
+          "last_name": "Karpov",
+          "language_code": "ru"
+        },
+        "chat": {
+          "id": 602129916,
+          "first_name": "MIHAIL",
+          "last_name": "Karpov",
+          "type": "private"
+        },
+        "date": 1578548117,
+        "text": "hi"
+      }
+    }
+  ]
+}
