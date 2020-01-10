@@ -33,7 +33,7 @@ def send_message(chat_id, text='bla-bla-bla'):
 
 
 def parse_text(text):
-    pattern = r'/w+'
+    pattern = r'/\w+'
     crypto = re.search(pattern, text).group()
     return crypto[1:]
 
@@ -42,7 +42,7 @@ def get_price(crypto):
     url = 'https://api.coinmarketcap.com/v1/ticker/{}'.format(crypto)
     r = requests.get(url).json()
     price = r[-1]['price_usd']
-    write_json(r.json(), filename='price.json')
+    write_json(r, filename='price.json')
     return price
 
 
@@ -55,7 +55,7 @@ def index():
 
         pattern = r'/\w+'
 
-        if re.search(pattern, message) in message:
+        if re.search(pattern, message):
             price = get_price(parse_text(message))
             send_message(chat_id, text=price)
         return jsonify(r)
