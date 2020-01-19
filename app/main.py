@@ -40,7 +40,11 @@ def parse_text(text):
 
 def get_price(crypto):
     url = 'https://api.coinmarketcap.com/v1/ticker/{}'.format(crypto)
-    r = requests.get(url).json()
+    r = requests.get(url)
+    if r.status_code == 200:
+        r = r.json()
+    else:
+        r = [{'price_usd': 'Не верное название криптовалюты '}]
     price = r[-1]['price_usd']
     write_json(r, filename='price.json')
     return price
